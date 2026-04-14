@@ -1,0 +1,35 @@
+@model MvcMovie.Models.Movie
+
+@{
+    ViewData["Title"] = "Détails";
+}
+
+<div class="page-header">
+    <h1><span>@Model.Title</span></h1>
+</div>
+
+<div class="detail-card">
+    <h4>&#127916; Fiche du film</h4>
+    <dl class="dl-styled">
+        <dt>@Html.DisplayNameFor(model => model.Title)</dt>
+        <dd>@Html.DisplayFor(model => model.Title)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.ReleaseDate)</dt>
+        <dd>@Model.ReleaseDate.ToString("dd MMMM yyyy")</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Genre)</dt>
+        <dd>
+            <span style="background:rgba(232,184,75,0.12);border:1px solid rgba(232,184,75,0.25);color:#e8b84b;font-size:0.75rem;letter-spacing:0.07em;text-transform:uppercase;padding:2px 10px;border-radius:4px;">
+                @Html.DisplayFor(model => model.Genre)
+            </span>
+        </dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Price)</dt>
+        <dd class="price-val">@Model.Price.ToString("C")</dd>
+    </dl>
+
+    <div class="detail-actions">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">&#9998; Modifier</a>
+        <a asp-action="Index" class="btn btn-secondary">&#8592; Retour</a>
+    </div>
+</div>

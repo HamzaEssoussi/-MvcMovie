@@ -1,0 +1,45 @@
+@model MvcMovie.Models.Movie
+
+@{
+    ViewData["Title"] = "Modifier le Film";
+}
+
+<div class="page-header">
+    <h1>Modifier <span>@Model.Title</span></h1>
+</div>
+
+<div class="form-card">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger" style="margin-bottom:1rem;"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ReleaseDate" class="control-label"></label>
+            <input asp-for="ReleaseDate" class="form-control" type="date" />
+            <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Genre" class="control-label"></label>
+            <input asp-for="Genre" class="form-control" />
+            <span asp-validation-for="Genre" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div style="display:flex;gap:0.75rem;margin-top:1.75rem;">
+            <input type="submit" value="Enregistrer" class="btn btn-primary" />
+            <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+        </div>
+    </form>
+</div>

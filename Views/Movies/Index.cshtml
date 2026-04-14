@@ -1,0 +1,48 @@
+@model IEnumerable<MvcMovie.Models.Movie>
+
+@{
+    ViewData["Title"] = "Films";
+}
+
+<div class="page-header">
+    <h1>Ma <span>Collection</span></h1>
+    <a asp-action="Create" class="btn btn-success">&#43; Nouveau film</a>
+</div>
+
+@if (!Model.Any())
+{
+    <div style="text-align:center;padding:5rem 0;color:var(--text-muted);">
+        <div style="font-size:3rem;margin-bottom:1rem;opacity:0.3;">&#127916;</div>
+        <p style="font-size:1rem;">Votre collection est vide.</p>
+        <a asp-action="Create" class="btn btn-primary" style="margin-top:1rem;">Ajouter un film</a>
+    </div>
+}
+else
+{
+    <div class="movies-grid">
+        @foreach (var item in Model)
+        {
+            <div class="movie-card">
+                <div class="movie-card__poster">
+                    @if (!string.IsNullOrEmpty(item.Genre))
+                    {
+                        <span class="movie-card__genre-badge">@item.Genre</span>
+                    }
+                    <span class="play-icon">&#9654;</span>
+                </div>
+                <div class="movie-card__body">
+                    <div class="movie-card__title">@item.Title</div>
+                    <div class="movie-card__meta">
+                        <span>&#128197; @item.ReleaseDate.ToString("yyyy")</span>
+                    </div>
+                    <div class="movie-card__price">@item.Price.ToString("C")</div>
+                    <div class="movie-card__actions">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">&#9998; Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">&#128065; Détails</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">&#128465;</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

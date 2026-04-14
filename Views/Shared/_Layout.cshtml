@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] — CinéVault</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm">
+            <div class="container-fluid" style="max-width:1100px;margin:0 auto;display:flex;align-items:center;height:64px;">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    &#9654; CinéVault
+                </a>
+                <div style="display:flex;align-items:center;gap:0.25rem;margin-left:auto;">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Accueil</a>
+                    <a class="nav-link" asp-area="" asp-controller="Movies" asp-action="Index">Films</a>
+                    <a class="nav-link" asp-area="" asp-controller="Movies" asp-action="Create" style="background:rgba(232,184,75,0.12);border:1px solid rgba(232,184,75,0.3);border-radius:6px;color:#e8b84b!important;padding:0.4rem 1rem!important;">+ Ajouter</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer">
+        <span style="color:rgba(232,184,75,0.5);margin-right:6px;">&#9654;</span>
+        CinéVault &copy; @DateTime.Now.Year — Votre collection de films
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

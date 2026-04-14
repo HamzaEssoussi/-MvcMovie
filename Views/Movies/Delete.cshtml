@@ -1,0 +1,36 @@
+@model MvcMovie.Models.Movie
+
+@{
+    ViewData["Title"] = "Supprimer";
+}
+
+<div class="page-header">
+    <h1>Supprimer <span>@Model.Title</span></h1>
+</div>
+
+<div class="detail-card">
+    <div class="delete-warning">
+        &#9888;&nbsp; Cette action est irréversible. Le film sera définitivement supprimé.
+    </div>
+
+    <h4>&#127916; Fiche du film</h4>
+    <dl class="dl-styled">
+        <dt>@Html.DisplayNameFor(model => model.Title)</dt>
+        <dd>@Html.DisplayFor(model => model.Title)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.ReleaseDate)</dt>
+        <dd>@Model.ReleaseDate.ToString("dd MMMM yyyy")</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Genre)</dt>
+        <dd>@Html.DisplayFor(model => model.Genre)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Price)</dt>
+        <dd class="price-val">@Model.Price.ToString("C")</dd>
+    </dl>
+
+    <form asp-action="Delete" style="margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;gap:0.75rem;">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="&#128465; Confirmer la suppression" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>

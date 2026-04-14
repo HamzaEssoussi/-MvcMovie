@@ -1,0 +1,40 @@
+﻿# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio cache/options
+.vs/
+.vscode/
+
+# Entity Framework
+*.edmx.diagram
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Mac
+.DS_Store
+
+# Application settings with sensitive data
+appsettings.Development.json
+appsettings.*.json
